@@ -1,7 +1,7 @@
 /*
 win.build.pkr.hcl: Used to install Windows. Requires several variables to be set. Suggested to run with the -only flag set, QEMU and Virtualbox tend to be incompatible.
 
-Example usage: `packer build -var-file="./win10/base.pkrvars.hcl" -only=virtualbox* ./build.pkr.hcl`
+Example usage: `packer build -var-file="./win10/install.pkrvars.hcl" -only=virtualbox* ./win.install.pkr.hcl`
 - Please note that quotations around the -var-file value seem to be required on Windows
 
 Required vars:
