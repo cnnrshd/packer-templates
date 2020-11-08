@@ -5,11 +5,11 @@ Example usage: `packer build -var-file="./win10/install.pkrvars.hcl" -only=virtu
 - Please note that quotations around the -var-file value seem to be required on Windows
 
 Required vars:
-autounattend
-vm_name
-iso_url
-iso_checksum
-guest_os_type
+- autounattend
+- vm_name
+- iso_url
+- iso_checksum
+- guest_os_type
 */
 source "qemu" "windows" {
   floppy_files = local.floppies

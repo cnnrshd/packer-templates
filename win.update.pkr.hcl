@@ -1,14 +1,14 @@
 /*
-win.install.pkr.hcl: Used to install Windows. Requires several variables to be set. Suggested to run with the -only flag set, QEMU and Virtualbox tend to be incompatible.
+win.update.pkr.hcl: Used to update Windows. Requires several variables to be set.
+- There are default values set for updates. Change these as needed.
 
-Example usage: `packer build -var-file="./win10/install.pkrvars.hcl" -only=virtualbox* ./install.pkr.hcl`
+Example usage: `packer build -var-file="./win10/update.pkrvars.hcl" -only=virtualbox* ./win.update.pkr.hcl`
 - Please note that quotations around the -var-file value seem to be required on Windows
 
 Required vars:
-
-vm_name
-prev_path
-prev_checksum
+- vm_name
+- prev_path
+- prev_checksum
 */
 
 source "virtualbox-ovf" "windows" {
@@ -30,7 +30,6 @@ source "virtualbox-ovf" "windows" {
 
 build {
   sources = [
-    # "source.qemu.windows",
     "source.virtualbox-ovf.windows"
   ]
   provisioner "windows-update" {
@@ -44,11 +43,6 @@ build {
   }
 }
 
-/*
-Vars have to be declared in a .pkr file, a .pkrvar file is used to assign
-values to variables that have already been declared. To minimize duplicate
-code, this section is needed.
-*/
 variables {
   winrm_password = "vagrant"
   winrm_username = "vagrant"
