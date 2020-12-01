@@ -1,5 +1,5 @@
 # packer-templates
-This repository is HCL-based Packer templates (and related scripts/files) for building Windows images.
+This repository is HCL-based Packer templates (and related scripts/files) for building Windows images using generic templates.
 ## Current features
 * Two Windows versions (Windows 10 and Server 2019)
 * Working code 
